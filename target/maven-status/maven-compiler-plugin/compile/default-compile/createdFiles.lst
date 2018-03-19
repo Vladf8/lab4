@@ -1,0 +1,6 @@
+ifmo\DBShotServ.class
+ifmo\UserManager.class
+ifmo\ShotManager.class
+ifmo\Usr.class
+ifmo\Shots.class
+ifmo\DBUsrService.class
