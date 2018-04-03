@@ -2,28 +2,27 @@ package ifmo;
 
 import javax.persistence.*;
 
-
 @Entity
-@Table(name = "usr", schema = "s223868")
+@Table(name = "usr", schema = "public")
 public class Usr {
     private int id;
     private String name;
     private String surname;
     private String login;
-    private int password;
+    private Integer password;
     private String mail;
-    public Usr(){}
-    public Usr(String name, String surname, String login, String password, String mail){
-        this.name =name;
-        this.surname =surname;
-        this.login =login;
-        this.password=password.hashCode();
-        this.mail =  mail;
-    }
+  public Usr(){}
+  public Usr(String name, String surname, String login, Integer password, String mail){
+      this.name =name;
+      this.surname =surname;
+      this.login =login;
+      this.password=password.hashCode();
+      this.mail =  mail;
+  }
     @Id
-    @GeneratedValue(strategy =  GenerationType.SEQUENCE, generator = "usr")
+    @GeneratedValue(strategy =  GenerationType.AUTO, generator = "usr")
     @SequenceGenerator(name = "usr", sequenceName = "usr_id_seq")
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     public int getId() {
         return id;
     }
@@ -33,7 +32,7 @@ public class Usr {
     }
 
     @Basic
-    @Column(name = "name")
+    @Column(name = "name", nullable = false, length = 30)
     public String getName() {
         return name;
     }
@@ -43,7 +42,7 @@ public class Usr {
     }
 
     @Basic
-    @Column(name = "surname")
+    @Column(name = "surname", nullable = false, length = 30)
     public String getSurname() {
         return surname;
     }
@@ -53,7 +52,7 @@ public class Usr {
     }
 
     @Basic
-    @Column(name = "login")
+    @Column(name = "login", nullable = false, length = 30)
     public String getLogin() {
         return login;
     }
@@ -63,7 +62,7 @@ public class Usr {
     }
 
     @Basic
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     public int getPassword() {
         return password;
     }
@@ -73,7 +72,7 @@ public class Usr {
     }
 
     @Basic
-    @Column(name = "mail")
+    @Column(name = "mail", nullable = true, length = 102)
     public String getMail() {
         return mail;
     }

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="JPAUNIT/Hibernate" uuid="f76b0bdd-01ad-439d-9259-73e3906203e4">
+    <data-source source="LOCAL" name="lab4@localhost" uuid="3c749054-8bbf-4a48-ae91-652a11eeca4e">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
-      <imported>true</imported>
-      <remarks>$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml</remarks>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://pg:5432/studs</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:5432/lab4</jdbc-url>
       <driver-properties>
         <property name="ApplicationName" value="DataGrip" />
       </driver-properties>

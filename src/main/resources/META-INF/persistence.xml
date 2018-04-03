@@ -5,11 +5,15 @@
         <class>ifmo.Shots</class>
         <class>ifmo.Usr</class>
         <properties>
-            <property name="hibernate.connection.url" value="jdbc:postgresql://pg:5432/studs"/>
+
+            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/lab4"/>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
-            <property name="hibernate.connection.username" value="s223868"/>
-            <property name="hibernate.connection.password" value="2SYpkYpv"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.connection.username" value="postgres"/>
+            <property name="hibernate.connection.password" value="vlad"/>
         </properties>
     </persistence-unit>
 </persistence>

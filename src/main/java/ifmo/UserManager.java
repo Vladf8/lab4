@@ -4,7 +4,6 @@ package ifmo;
 import javax.ejb.EJB;
 import javax.ejb.Singleton;
 
-import javax.ejb.Startup;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@Startup
+
 @Singleton
 @Path(value = "/usr")
 public class UserManager {
@@ -23,21 +22,19 @@ public class UserManager {
     @EJB
     @Path("/signup")
     @POST
-    public void addUser(@FormParam("name") String name, @FormParam("surname") String surname, @FormParam("login") String login, @FormParam("password") String password, @FormParam("mail") String email, @Context HttpServletResponse resp, @Context HttpServletRequest req) {
+    public void addUser(@FormParam("name") String name, @FormParam("surname") String surname, @FormParam("login") String login, @FormParam("password") Integer password, @FormParam("mail") String email, @Context HttpServletResponse resp, @Context HttpServletRequest req) {
         try {
             Usr usr = new Usr(name, surname, login, password, email);
             serv.saveUsr(usr);
             req.getSession().setAttribute("login", login);
             req.getSession().setAttribute("shots", new ArrayList<Shots>());
-            String msg = "user: "+login+" joined system ";
-            //sender.sendMsg(msg);
-            resp.sendRedirect("http://localhost:41310/lab4-11782673497812496982.0-SNAPSHOT/check.html");
+            resp.sendRedirect("http://localhost:8080/laba4-1.0/check.html");
         }catch (Exception e){e.printStackTrace();}
     }
 
     @Path("/login")
     @POST
-    public void checkAuth(@FormParam("login") String login, @FormParam("password") String password, @Context HttpServletResponse resp, @Context HttpServletRequest req){
+    public void checkAuth(@FormParam("login") String login, @FormParam("password") Integer password, @Context HttpServletResponse resp, @Context HttpServletRequest req){
         try {
             boolean check = serv.assertUser(login, password);
             if (check) {
@@ -46,9 +43,9 @@ public class UserManager {
 
                 String msg = "user: "+login+" entered system";
                 //sender.sendMsg(msg);
-                resp.sendRedirect("http://localhost:41310/lab4-11782673497812496982.0-SNAPSHOT/check.html");
+                resp.sendRedirect("http://localhost:8080/laba4-1.0/check.html");
             } else {
-                resp.sendRedirect("http://localhost:41310/lab4-11782673497812496982.0-SNAPSHOT/error_page.html");
+                resp.sendRedirect("http://localhost:8080/laba4-1.0/error_page.html");
             }
 
 
@@ -57,7 +54,7 @@ public class UserManager {
         }
 
     }
-    @POST
+    @GET
     @Path("/secur")
     public List<String> secur(@Context HttpServletRequest req){
         List<String> list = new ArrayList<>();
@@ -73,7 +70,7 @@ public class UserManager {
             String msg = "user: "+req.getSession().getAttribute("login")+" escaped";
             //sender.sendMsg(msg);
             req.getSession().invalidate();
-            resp.sendRedirect("http://localhost:41310/lab4-11782673497812496982.0-SNAPSHOT/index.html");
+            resp.sendRedirect("http://localhost:8080/laba4-1.0/index.html");
         }catch(Exception e){}
     }
 }

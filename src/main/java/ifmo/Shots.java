@@ -2,9 +2,8 @@ package ifmo;
 
 import javax.persistence.*;
 
-
 @Entity
-@Table(name = "shots" , schema = "s223868")
+@Table(name = "shots" , schema = "public")
 public class Shots {
     private int id;
     private float x;
@@ -18,9 +17,9 @@ public class Shots {
         this.r=r;
     }
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gen")
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "gen")
     @SequenceGenerator(name = "gen", sequenceName = "shots_id_seq")
-    @Column(name = "id")
+    @Column(name = "id", nullable = false)
     public int getId() {
         return id;
     }
@@ -30,7 +29,7 @@ public class Shots {
     }
 
     @Basic
-    @Column(name = "x")
+    @Column(name = "x", nullable = true, precision = 0)
     public float getX() {
         return x;
     }
@@ -40,7 +39,7 @@ public class Shots {
     }
 
     @Basic
-    @Column(name = "y")
+    @Column(name = "y", nullable = true, precision = 0)
     public float getY() {
         return y;
     }
@@ -50,7 +49,7 @@ public class Shots {
     }
 
     @Basic
-    @Column(name = "r")
+    @Column(name = "r", nullable = true, precision = 0)
     public float getR() {
         return r;
     }
@@ -60,7 +59,7 @@ public class Shots {
     }
 
     @Basic
-    @Column(name = "fit")
+    @Column(name = "fit", nullable = true)
     public boolean getFit() {
         return fit;
     }
