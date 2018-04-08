@@ -68,7 +68,7 @@ app.controller('canvasController',['$scope','$window', '$http','$httpParamSerial
             //
         }
         paint_dep(650,650,60);
-        /*if (width >= 1248) {
+        /*if     (width >= 1248) {
         paint_dep(650,650,60);
         }
         if((width>=821)&&(width<1248)){
@@ -199,7 +199,8 @@ app.controller('canvasController',['$scope','$window', '$http','$httpParamSerial
                 y = $scope.shots[i].y;
                 r = document.forms.checker.r.value;
                 fit = $scope.shots[i].fit;
-                if (((y >= -x - r) && (x <= 0) && (y <= 0)) || ((y >= 0) && (x <= 0) && (x >= -r) && (y <= r/2)) || ((x >= 0) && (y >= 0) && (Math.pow(x, 2) + Math.pow(y, 2) <= Math.pow(r, 2)))) {
+                //alert(x,y,r,fit);
+                if (((y >= x/2 - r/2) && (x >= 0) && (y <= 0)) || ((y <= 0) && (x <= 0) && (x >= -r/2) && (y >= -r)) || ((x <= 0) && (y >= 0) && (Math.pow(x, 2) + Math.pow(y, 2) <= Math.pow(r, 2)))) {
                     //alert("green");
                     color = '#00ff00';
                 }
