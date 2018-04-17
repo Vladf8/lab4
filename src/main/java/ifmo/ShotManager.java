@@ -25,7 +25,7 @@ public class ShotManager {
     public void check(@FormParam("x") float x,@FormParam("y") float y , @FormParam("r") float r, @Context HttpServletRequest req, @Context HttpServletResponse resp){
         try {
             Shots shot = new Shots(x, y, r);
-            if (((y >= -x - r) && (x <= 0) && (y <= 0)) || ((y >= 0) && (x <= 0) && (x >= -r) && (y <= r/2)) || ((x >= 0) && (y >= 0) && (Math.pow(x, 2) + Math.pow(y, 2) <= Math.pow(r, 2)))) {
+            if (((y >= x/2 - r/2) && (x >= 0) && (y <= 0)) || ((y <= 0) && (x <= 0) && (x >= -r/2) && (y >= -r)) || ((x <= 0) && (y >= 0) && (Math.pow(x, 2) + Math.pow(y, 2) <= Math.pow(r, 2)))) {
                 shot.setFit(true);
             } else {
                 shot.setFit(false);
@@ -33,7 +33,7 @@ public class ShotManager {
             List<Shots> list = (List<Shots>) req.getSession().getAttribute("shots");
             list.add(shot);
             serv.saveShot(shot);
-            resp.sendRedirect("http://localhost:8080/laba4-1.0/check.html");
+            resp.sendRedirect("/laba4-1286018391318196264.0/check.html");
         }catch (Exception e){}
     }
     @POST
@@ -45,7 +45,7 @@ public class ShotManager {
             float x = sh.getX();
             float y = sh.getY();
             sh.setR(r);
-            if (((y >= -x - r) && (x <= 0) && (y <= 0)) || ((y >= 0) && (x <= 0) && (x >= -r) && (y <= r/2)) || ((x >= 0) && (y >= 0) && (Math.pow(x, 2) + Math.pow(y, 2) <= Math.pow(r, 2)))) {
+            if (((y >= x/2 - r/2) && (x >= 0) && (y <= 0)) || ((y <= 0) && (x <= 0) && (x >= -r/2) && (y >= -r)) || ((x <= 0) && (y >= 0) && (Math.pow(x, 2) + Math.pow(y, 2) <= Math.pow(r, 2)))) {
                 sh.setFit(true);
             } else {
                 sh.setFit(false);

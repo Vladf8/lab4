@@ -10,7 +10,7 @@ import javax.persistence.Persistence;
 public class DBUsrService {
 
 
-    EntityManagerFactory fact = Persistence.createEntityManagerFactory("JPAUNIT");
+    EntityManagerFactory fact = DBUtil.getFactory();
     EntityManager em = fact.createEntityManager();
 
     public void saveUsr(Usr usr){

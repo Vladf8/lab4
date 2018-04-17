@@ -12,7 +12,7 @@ import java.util.List;
 @Stateful
 public class DBShotServ {
 
-    EntityManagerFactory fact = Persistence.createEntityManagerFactory("JPAUNIT");
+    EntityManagerFactory fact = DBUtil.getFactory();
     EntityManager em = fact.createEntityManager();
     public void saveShot(Shots shot){
         em.getTransaction().begin();

@@ -28,7 +28,7 @@ public class UserManager {
             serv.saveUsr(usr);
             req.getSession().setAttribute("login", login);
             req.getSession().setAttribute("shots", new ArrayList<Shots>());
-            resp.sendRedirect("http://localhost:8080/laba4-1.0/check.html");
+            resp.sendRedirect("/laba4-1286018391318196264.0/check.html");
         }catch (Exception e){e.printStackTrace();}
     }
 
@@ -43,9 +43,9 @@ public class UserManager {
 
                 String msg = "user: "+login+" entered system";
                 //sender.sendMsg(msg);
-                resp.sendRedirect("http://localhost:8080/laba4-1.0/check.html");
+                resp.sendRedirect("/laba4-1286018391318196264.0/check.html");
             } else {
-                resp.sendRedirect("http://localhost:8080/laba4-1.0/error_page.html");
+                resp.sendRedirect("/laba4-1286018391318196264.0/error_page.html");
             }
 
 
@@ -70,7 +70,7 @@ public class UserManager {
             String msg = "user: "+req.getSession().getAttribute("login")+" escaped";
             //sender.sendMsg(msg);
             req.getSession().invalidate();
-            resp.sendRedirect("http://localhost:8080/laba4-1.0/index.html");
+            resp.sendRedirect("/laba4-1286018391318196264.0/index.html");
         }catch(Exception e){}
     }
 }

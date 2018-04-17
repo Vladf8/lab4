@@ -176,7 +176,7 @@ app.controller('canvasController',['$scope','$window', '$http','$httpParamSerial
     $scope.touch = function () {
         $http.post('rest/usr/secur').then(function (result) {
             if(result.data.length===0){
-                $window.location.replace('http://localhost:8080/laba4-1.0/error_page.html');
+                $window.location.replace('/laba4-15640507474681350662.0/error_page.html');
             }
         });
 
@@ -268,7 +268,7 @@ app.controller('canvasController',['$scope','$window', '$http','$httpParamSerial
         var newy;
         rad = r.value;
         var width = document.body.clientWidth;
-        if(rad < 5 && rad >= 0){
+        if(rad <= 5 && rad >= 0){
             //if(width>=1248){
             newx=(x-325)/60;
             newy=(325-y)/60;
@@ -299,7 +299,7 @@ app.controller('canvasController',['$scope','$window', '$http','$httpParamSerial
     $window.onload = function () {
         $http.get('rest/usr/secur').then(function success(resp) {
             if(resp.data.length===0){
-                $window.location.replace('http://localhost:8080/laba4-1.0/error_page.html');
+                $window.location.replace('/laba4-15640507474681350662.0/error_page.html');
             }
         });
        $http.get('rest/point/getpoints').then(function (result) {

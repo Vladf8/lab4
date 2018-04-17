@@ -3,7 +3,7 @@ package ifmo;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "shots" , schema = "public")
+@Table(name = "shots" , schema = "s223375")
 public class Shots {
     private int id;
     private float x;

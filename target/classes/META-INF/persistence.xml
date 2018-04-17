@@ -6,14 +6,14 @@
         <class>ifmo.Usr</class>
         <properties>
 
-            <property name="hibernate.connection.url" value="jdbc:postgresql://localhost:5432/lab4"/>
+            <property name="hibernate.connection.url" value="jdbc:postgresql://pg/studs"/>
             <property name="hibernate.connection.driver_class" value="org.postgresql.Driver"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQL9Dialect"/>
             <property name="hibernate.hbm2ddl.auto" value="update"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
-            <property name="hibernate.connection.username" value="postgres"/>
-            <property name="hibernate.connection.password" value="vlad"/>
+            <property name="hibernate.connection.username" value="s223375"/>
+            <property name="hibernate.connection.password" value="2pCXjPpb"/>
         </properties>
     </persistence-unit>
 </persistence>

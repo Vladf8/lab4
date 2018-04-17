@@ -68,7 +68,7 @@ app.controller('canvasController',['$scope','$window', '$http','$httpParamSerial
             //
         }
         paint_dep(650,650,60);
-        /*if (width >= 1248) {
+        /*if     (width >= 1248) {
         paint_dep(650,650,60);
         }
         if((width>=821)&&(width<1248)){
@@ -176,7 +176,7 @@ app.controller('canvasController',['$scope','$window', '$http','$httpParamSerial
     $scope.touch = function () {
         $http.post('rest/usr/secur').then(function (result) {
             if(result.data.length===0){
-                $window.location.replace('http://localhost:8080/laba4-1.0/error_page.html');
+                $window.location.replace('/laba4-15640507474681350662.0/error_page.html');
             }
         });
 
@@ -199,7 +199,8 @@ app.controller('canvasController',['$scope','$window', '$http','$httpParamSerial
                 y = $scope.shots[i].y;
                 r = document.forms.checker.r.value;
                 fit = $scope.shots[i].fit;
-                if (((y >= -x - r) && (x <= 0) && (y <= 0)) || ((y >= 0) && (x <= 0) && (x >= -r) && (y <= r/2)) || ((x >= 0) && (y >= 0) && (Math.pow(x, 2) + Math.pow(y, 2) <= Math.pow(r, 2)))) {
+                //alert(x,y,r,fit);
+                if (((y >= x/2 - r/2) && (x >= 0) && (y <= 0)) || ((y <= 0) && (x <= 0) && (x >= -r/2) && (y >= -r)) || ((x <= 0) && (y >= 0) && (Math.pow(x, 2) + Math.pow(y, 2) <= Math.pow(r, 2)))) {
                     //alert("green");
                     color = '#00ff00';
                 }
@@ -267,7 +268,7 @@ app.controller('canvasController',['$scope','$window', '$http','$httpParamSerial
         var newy;
         rad = r.value;
         var width = document.body.clientWidth;
-        if(rad < 5 && rad >= 0){
+        if(rad <= 5 && rad >= 0){
             //if(width>=1248){
             newx=(x-325)/60;
             newy=(325-y)/60;
@@ -298,7 +299,7 @@ app.controller('canvasController',['$scope','$window', '$http','$httpParamSerial
     $window.onload = function () {
         $http.get('rest/usr/secur').then(function success(resp) {
             if(resp.data.length===0){
-                $window.location.replace('http://localhost:8080/laba4-1.0/error_page.html');
+                $window.location.replace('/laba4-15640507474681350662.0/error_page.html');
             }
         });
        $http.get('rest/point/getpoints').then(function (result) {
